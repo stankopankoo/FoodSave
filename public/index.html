@@ -1,0 +1,1042 @@
+﻿<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zachráň jedlo. Zachráň planétu.</title>
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <div class="logo">
+          <img src="img/logo bg.png" alt="FoodSave logo" />
+          <span class="logo-text">FOODSAVE</span>
+        </div>
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+        <label class="burger" for="nav-toggle" aria-label="Otvoriť menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div class="nav-links">
+          <a href="#baliky">Balíky</a>
+          <a href="#ako-to-funguje">Ako to funguje</a>
+          <a href="#rezervacia">Objednávka</a>
+          <a href="#partneri">Partneri</a>
+          <a href="#kto-sme">Kto sme?</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-bg">
+          <div class="blob blob-a"></div>
+          <div class="blob blob-b"></div>
+          <div class="blob blob-c"></div>
+        </div>
+        <div class="hero-text">
+          <p class="eyebrow">Eko × Jedlo × Úspora</p>
+          <h1>
+            Zachráňte čerstvé pečivo a ovocie skôr, než sa stratia.
+          </h1>
+          <p class="lead">
+            FoodSave prepája reťazce a reštaurácie s ľuďmi, ktorí chcú výhodne
+            nakúpiť nepredané kvalitné jedlo. Jednoduchá rezervácia, bezpečná platba a
+            okamžité notifikácie.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#baliky">Zobraziť ponuku</a>
+            <a class="btn btn-ghost" href="#partneri">Stať sa partnerom</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <strong class="count-up" data-target="200" data-suffix="+">0</strong>
+              <span>balíkov mesačne</span>
+            </div>
+            <div>
+              <strong class="count-up" data-target="6">0</strong>
+              <span>partnerov</span>
+            </div>
+            <div>
+              <strong class="count-up" data-target="451">0</strong>
+              <span>spokojných zákazníkov</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          
+          <div class="hero-card hero-card-main hero-card-slider">
+            <div class="hero-card-content">
+              <div class="slider-window">
+                <div class="slider-track">
+                  <div class="slide" data-package="fresh">
+                    <div class="slide-media slide-media-bread"></div>
+                    <div class="slide-body">
+                      <div class="slide-header">
+                        <h3>Balík: Čerstvé pečivo</h3>
+                        <span class="price-pill">10 € / mesiac (4 balíky)</span>
+                      </div>
+                      <p>8 ks mix, orientačne</p>
+                      <ul class="slide-meta">
+                        <li>Čerstvé pečivo z dneška</li>
+                        <li>Ideálne na raňajky</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="slide" data-package="fruit">
+                    <div class="slide-media slide-media-fruit"></div>
+                    <div class="slide-body">
+                      <div class="slide-header">
+                        <h3>Balík: Ovocný box</h3>
+                        <span class="price-pill">10 € / mesiac (4 balíky)</span>
+                      </div>
+                      <p>Banány, jablká, hrušky, hrozno.</p>
+                      <ul class="slide-meta">
+                        <li>Sezónny výber</li>
+                        <li>Skvelé do práce</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="slide" data-package="pastry">
+                    <div class="slide-media slide-media-pastry"></div>
+                    <div class="slide-body">
+                      <div class="slide-header">
+                        <h3>Balík: Cukrárenský výber</h3>
+                        <span class="price-pill">10 € / mesiac (4 balíky)</span>
+                      </div>
+                      <p>Koláče a zákusky z dneška.</p>
+                      <ul class="slide-meta">
+                        <li>Mix sladkých kúskov</li>
+                        <li>Ideálne na oslavy</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="slide" data-package="surprise">
+                    <div class="slide-media slide-media-surprise"></div>
+                    <div class="slide-body">
+                      <div class="slide-header">
+                        <h3>Balík: Surprise box</h3>
+                        <span class="price-pill">8 € / mesiac (4 balíky)</span>
+                      </div>
+                      <p>Obsah podľa dostupnosti.</p>
+                      <ul class="slide-meta">
+                        <li>Najlepšia hodnota</li>
+                        <li>Vždy prekvapenie</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-controls">
+                <button class="slider-btn" type="button" aria-label="Predchádzajúci balík">
+                  ‹
+                </button>
+                <button class="slider-btn" type="button" aria-label="Ďalší balík">
+                  ›
+                </button>
+              </div>
+              <a class="btn btn-small reserve-link" href="#rezervacia" data-package="fresh">Zachr&aacute;ni&tcaron; box</a>
+            </div>
+          </div>
+          <div class="hero-card hero-card-side">
+            <div class="badge-group">
+              <div class="badge">Jedlo až so zľavou do 60%</div>
+              <div class="badge badge-alt">📍 Banská Bystrica</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section motion-strip">
+        <div class="strip">
+          <div class="strip-track">
+            <span>Čerstvé pečivo</span>
+            <span>Happy zákazníci</span>
+            <span>Eco komunita</span>
+            <span>Rýchla rezervácia</span>
+            <span>Skvelé ceny</span>
+            <span>Chlieb</span>
+            <span>Bagety</span>
+            <span>Rožky</span>
+            <span>Donuty</span>
+            <span>Koláče</span>
+            <span>Čerstvé pečivo</span>
+            <span>Happy zákazníci</span>
+            <span>Eco komunita</span>
+            <span>Rýchla rezervácia</span>
+            <span>Skvelé ceny</span>
+            <span>Chlieb</span>
+            <span>Bagety</span>
+            <span>Rožky</span>
+            <span>Donuty</span>
+            <span>Koláče</span>
+            <span>Čerstvé pečivo</span>
+            <span>Happy zákazníci</span>
+            <span>Eco komunita</span>
+            <span>Rýchla rezervácia</span>
+            <span>Skvelé ceny</span>
+            <span>Chlieb</span>
+            <span>Bagety</span>
+            <span>Rožky</span>
+            <span>Donuty</span>
+            <span>Koláče</span>
+          </div>
+        </div>
+      </section>
+      <section id="baliky" class="section packages">
+        <div class="packages-callout" aria-hidden="true">
+          <p>-10 € mesačne — 4 balíky (1× týždenne)</p>
+        </div>
+        <div class="section-header">
+          <h2>Dostupné balíky</h2>
+          <p class="highlight-text">
+         Zloženie balíkov sa mení podľa dostupnosti nepredaného pečiva v daný deň.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="card package-card">
+            <div class="card-image bread"></div>
+            <div class="package-body">
+              <div class="package-header">
+                <h3>Čerstvé pečivo</h3>
+                <span class="price-pill">10 € / mesiac (4 balíky)</span>
+              </div>
+              <p>Mix rožkov, bagiet a koláčikov.</p>
+              <ul class="package-meta">
+                <li>7-10 ks</li>
+                <li>Čerstvé z dneška</li>
+              </ul>
+              <a class="btn btn-small reserve-link" href="#rezervacia" data-package="fresh">Zachr&aacute;ni&tcaron; box</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image fruit"></div>
+            <div class="package-body">
+              <div class="package-header">
+                <h3>Ovocný box</h3>
+                <span class="price-pill">10 € / mesiac (4 balíky)</span>
+              </div>
+              <p>Banány, jablká, hrušky, hrozno.</p>
+              <ul class="package-meta">
+                <li>6-9 ks</li>
+                <li>Sezónny výber</li>
+              </ul>
+              <a class="btn btn-small reserve-link" href="#rezervacia" data-package="fruit">Zachr&aacute;ni&tcaron; box</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image pastry"></div>
+            <div class="package-body">
+              <div class="package-header">
+                <h3>Cukrárenský výber</h3>
+                <span class="price-pill">10 € / mesiac (4 balíky)</span>
+              </div>
+              <p>Koláče a zákusky z dneška.</p>
+              <ul class="package-meta">
+                <li>6-9 ks</li>
+                <li>Mix sladkých kúskov</li>
+              </ul>
+              <a class="btn btn-small reserve-link" href="#rezervacia" data-package="pastry">Zachr&aacute;ni&tcaron; box</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image surprise"></div>
+            <div class="package-body">
+              <div class="package-header">
+                <h3>Surprise box</h3>
+                <span class="price-pill">8 € / mesiac (4 balíky)</span>
+              </div>
+              <p>Obsah podľa dostupnosti.</p>
+              <ul class="package-meta">
+                <li>4-7 ks</li>
+                <li>Najlepšia hodnota</li>
+              </ul>
+              <a class="btn btn-small reserve-link" href="#rezervacia" data-package="surprise">Zachr&aacute;ni&tcaron; box</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="ako-to-funguje" class="section map">
+        <div class="map-callout" aria-hidden="true">
+          <p>„Jedlo patrí na tanier, nie do koša.“</p>
+        </div>
+        <div class="section-header">
+          <h2>Ako to funguje?</h2>
+          <p class="highlight-text">Tri jednoduché kroky k záchrane jedla.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>1. Vyber balík</h3>
+            <p>
+              Vyber si balík podľa chuti a dostupnosti.
+              <span class="highlight-text">
+                Jedna objednávka zahŕňa 4 balíky — doručíme vám 1× týždenne.
+              </span>
+            </p>
+          </article>
+          <article class="card">
+            <h3>2. Zaplať online</h3>
+            <p>
+              Platba prebieha bezpečne cez platobnú bránu. Údaje o karte
+              neukladáme – všetko rieši Stripe.
+            </p>
+          </article>
+          <article class="card">
+            <h3>3. Doručenie k tebe</h3>
+            <p>
+              Vyber si čas a dátum doručenia a my ti balík dovezieme priamo na adresu.
+              Jedlo dostaneš pohodlne a načas.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="rezervacia" class="section reservation">
+        <div class="section-header">
+          <h2>Objednávka a platba</h2>
+          <p class="highlight-text">
+            Vyberte balík, nastavte čas vyzdvihnutia a zaplaťte online.
+          </p>
+        </div>
+        <div class="reservation-grid">
+          <form class="reservation-form" id="reservation-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label>
+                  Balíky <span class="package-hint">• zaklikni svoj balík</span>
+                </label>
+                <div class="package-picker">
+                  <label class="package-option">
+                    <input type="checkbox" name="package" value="fresh" />
+                    <span>Čerstvé pečivo</span>
+                    <input class="package-qty" type="number" min="1" value="1" aria-label="Množstvo Čerstvé pečivo" />
+                  </label>
+                  <label class="package-option">
+                    <input type="checkbox" name="package" value="fruit" />
+                    <span>Ovocný box</span>
+                    <input class="package-qty" type="number" min="1" value="1" aria-label="Množstvo Ovocný box" />
+                  </label>
+                  <label class="package-option">
+                    <input type="checkbox" name="package" value="pastry" />
+                    <span>Cukrárenský výber</span>
+                    <input class="package-qty" type="number" min="1" value="1" aria-label="Množstvo Cukrárenský výber" />
+                  </label>
+                  <label class="package-option">
+                    <input type="checkbox" name="package" value="surprise" />
+                    <span>Surprise box</span>
+                    <input class="package-qty" type="number" min="1" value="1" aria-label="Množstvo Surprise box" />
+                  </label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="adresa">Vaša adresa</label>
+                <input id="adresa" name="adresa" type="text" placeholder="Ulica a číslo" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cas">Čas vyzdvihnutia</label>
+                <input id="cas" name="cas" type="time" value="18:30" required />
+              </div>
+              <div class="form-field">
+                <label for="datum">Dátum vyzdvihnutia</label>
+                <input id="datum" name="datum" type="date" required />
+              </div>
+              <div class="form-field">
+                <label>Počet balíkov</label>
+                <input id="mnozstvo" name="mnozstvo" type="number" min="1" value="1" disabled />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="meno">Meno a priezvisko</label>
+                <input id="meno" name="meno" type="text" placeholder="Vaše meno" required />
+              </div>
+              <div class="form-field">
+                <label for="email-customer">Email</label>
+                <input
+                  id="email-customer"
+                  name="email"
+                  type="email"
+                  placeholder="email@domena.sk"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="telefon">Telefón</label>
+                <input id="telefon" name="telefon" type="tel" inputmode="numeric" pattern="\d+" placeholder="0900 123 456" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="poznamka">Špeciálne požiadavky</label>
+                <textarea
+                  id="poznamka"
+                  name="poznamka"
+                  placeholder="Napr. alergie, kde zazvoniť..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Platba</label>
+                <p class="payment-hint">
+               
+                </p>
+              </div>
+            </div>
+            <div class="form-footer">
+              <div>
+                <strong>Spolu</strong>
+                <p id="total-price">10,00 €</p>
+              </div>
+              <button class="btn btn-primary" type="submit" id="reservation-submit">
+                Pokračovať na platbu
+              </button>
+            </div>
+            <div id="reservation-feedback" class="form-feedback" role="status"></div>
+            <p class="form-disclaimer">
+              Platobné údaje zadáš bezpečne v ďalšom kroku v bráne Stripe.
+            </p>
+          </form>
+          <div class="reservation-summary">
+            <div class="summary-header">
+              <h3>Prehľad rezervácie</h3>
+              <div class="summary-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 80" role="img">
+                  <path
+                    d="M15 55c0-20 18-35 45-35s45 15 45 35c0 12-9 20-21 20H36C24 75 15 67 15 55z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32 38l-6-7M48 33l-5-8M66 31l4-8M82 35l6-7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <ul>
+              <li class="summary-strong">Jedna objednávka zahŕňa 4 balíky — doručíme vám 1× týždenne.</li>
+              <li>Každý balík doručíme na tvoju adresu v zvolený deň a čas.</li>
+              <li>Termín doručenia si vieš nastaviť priamo pri objednávke.</li>
+            </ul>
+            <div class="summary-card">
+              <p>Vaša záchrana jedla dnes</p>
+              <strong id="saved-food">1,2 kg jedla</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="kto-sme" class="section about">
+        <div class="section-header">
+          <h2>Kto sme a čo ponúkame</h2>
+          <p>
+            FoodSave spája reťazce, pekárne a reštaurácie s ľuďmi, ktorí chcú
+            zachrániť skvelé jedlo za lepšiu cenu.
+          </p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Naša misia</h3>
+            <p>
+              Znižujeme plytvanie a dávame čerstvému jedlu druhú šancu. Každý balík šetrí
+              peniaze aj planétu.
+              <span class="highlight-text">
+                Momentálne fungujeme v Banskej Bystrici a čoskoro aj v Žiline a Poprade.
+              </span>
+            </p>
+            <div class="about-badges">
+              <span>+6 partnerov</span>
+              <span>451 spokojných zákazníkov</span>
+              <span>1 200 kg zachránené</span>
+            </div>
+          </div>
+          <div class="about-visual">
+            <div class="about-image"></div>
+            <div class="pulse-ring"></div>
+            <div class="floating-tag">Čoskoro dostupné balíky</div>
+          </div>
+        </div>
+      </section>
+      <section id="partneri" class="section partners">
+        <div class="section-header">
+          <h2>Zaregistruj svoju firmu</h2>
+          <p class="highlight-text">
+            Krátky onboarding a môžeš pridávať balíky ešte dnes.
+          </p>
+        </div>
+        <div class="partner-form">
+          <div class="partner-form-copy">
+            <h3>Prečo sa pridať?</h3>
+            <p>Získajte nových zákazníkov a znížte odpad bez starostí.</p>
+            <ul>
+              <li>Schválenie do 24 hodín</li>
+              <li>Podpora pri nastavení ponuky</li>
+               <li>Vaša reklama, naša radosť</li>
+            </ul>
+            <div class="partner-decor" aria-hidden="true">
+              <div class="partner-photo"></div>
+              <div class="partner-orbit"></div>
+            </div>
+          </div>
+          <form class="partner-form-card" id="partner-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="firma">Názov firmy</label>
+                <input id="firma" name="firma" type="text" placeholder="FoodSave Bistro" required />
+              </div>
+              <div class="form-field">
+                <label for="prevadzka">Typ prevádzky</label>
+                <select id="prevadzka" name="prevadzka" required>
+                  <option>Pekáreň</option>
+                  <option>Supermarket</option>
+                  <option>Ostatné</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="kontakt">Kontaktná osoba</label>
+                <input id="kontakt" name="kontakt" type="text" placeholder="Meno a priezvisko" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="firma@email.sk" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="mesto">Mesto</label>
+                <input id="mesto" name="mesto" type="text" placeholder="Banská Bystrica" required />
+              </div>
+              <div class="form-field">
+                <label for="telefon-firmy">Telefón</label>
+                <input id="telefon-firmy" name="telefon-firmy" type="tel" inputmode="numeric" pattern="\d+" placeholder="0900 123 456" required />
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Zaregistrovať firmu</button>
+            <p class="form-disclaimer">
+              Odoslaním súhlasíte so spracovaním údajov výhradne na účely registrácie.
+            </p>
+          </form>
+        </div>
+      </section>
+      <section class="cta">
+        <div class="cta-card">
+          <div class="cta-decor">
+            <div class="cta-photo"></div>
+            <div class="cta-orbit"></div>
+          </div>
+          <h2>FoodSave je pripravený zachraňovať jedlo !</h2>
+          <p>
+            Zapojte sa ako používateľ alebo partner a pomôžte znižovať plytvanie čerstvého jedla.
+          </p>
+          <div class="cta-actions app-store-teaser">
+            <img class="app-store-icon" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+            <p class="app-store-note">&Ccaron;oskoro na App Store!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div>
+        <strong>FoodSave</strong>
+        <p>Zachráň jedlo. Zachráň planétu.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#" id="open-about">O nás</a>
+        <a href="#" id="open-terms">Podmienky</a>
+        <a href="#" id="open-faq">FAQ</a>
+        <a href="#" id="open-contact">Kontakt</a>
+      </div>
+      <div class="footer-made">
+        Made with ❤️ on 🌍
+        <span class="footer-legal">© 2026 All rights reserved</span>
+      </div>
+    </footer>
+    <div class="terms-drawer" id="terms-drawer" aria-hidden="true">
+      <div class="terms-panel" role="dialog" aria-labelledby="terms-title">
+        <button class="terms-close" type="button" id="close-terms" aria-label="Zavrieť">
+          ×
+        </button>
+        <h3 id="terms-title">Podmienky a GDPR (skrátene)</h3>
+        <p>
+          FoodSave spracúva osobné údaje iba na účely rezervácie a komunikácie
+          so zákazníkom (meno, telefón, email/adresa).
+        </p>
+        <p>
+          Údaje nepredávame tretím stranám. Platby spracúva výhradne platobná brána
+          (Stripe). Údaje o karte neukladáme.
+        </p>
+        <p>
+          Rezervácia je platná 30 minút. Zrušenie alebo zmena je možná pred
+          potvrdením vyzdvihnutia. Viac informácií poskytne podpora.
+        </p>
+      </div>
+    </div>
+    <div class="terms-drawer" id="contact-drawer" aria-hidden="true">
+      <div class="terms-panel" role="dialog" aria-labelledby="contact-title">
+        <button class="terms-close" type="button" id="close-contact" aria-label="Zavrieť">
+          ×
+        </button>
+        <h3 id="contact-title">Kontakt</h3>
+        <p>
+          Email: foodsave290@gmail.com
+        </p>
+        <p>
+          Telefón: 0952 568 714
+        </p>
+        <p>
+          Sme tu pre vás na linke Po–So, 8:00–17:00.
+        <p>Ak sa vyskytne akýkoľkvek problém, neváhajte nás kontaktovať.</p>
+        </p>
+      </div>
+    </div>
+    <div class="terms-drawer" id="about-drawer" aria-hidden="true">
+      <div class="terms-panel" role="dialog" aria-labelledby="about-title">
+        <button class="terms-close" type="button" id="close-about" aria-label="Zavrieť">
+          ×
+        </button>
+        <h3 id="about-title">O nás</h3>
+        <p>
+          FoodSave je iniciatíva zameraná na znižovanie potravinového odpadu.
+          Pomáhame partnerom predávať nepredané jedlo a zákazníkom nakupovať
+          kvalitné balíky za výhodné ceny.
+        </p>
+        <p>
+          Spolu budujeme udržateľnejší spôsob nakupovania.
+        </p>
+      </div>
+    </div>
+    <div class="terms-drawer" id="faq-drawer" aria-hidden="true">
+      <div class="terms-panel" role="dialog" aria-labelledby="faq-title">
+        <button class="terms-close" type="button" id="close-faq" aria-label="Zavrieť">
+          ×
+        </button>
+        <h3 id="faq-title">FAQ</h3>
+        <p><strong>Dokedy môžem zrušiť objednávku?</strong><br />Zrušenie je možné do 2 hodín pred doručením cez telefon/email.</p>
+        <p><strong>Kedy mi príde balík?</strong><br />V zvolenom čase doručenia v potvrdení objednávky.</p>
+        <p><strong>Čo ak nie som doma?</strong><br />Kontaktujeme vás na telefóne a dohodneme náhradné riešenie.</p>
+        <p><strong>Ako prebieha platba?</strong><br />Bezpečne cez Stripe, údaje o karte neukladáme.</p>
+        <p><strong>Je obsah balíka vždy rovnaký?</strong><br />Nie, zloženie sa mení podľa dostupnosti.</p>
+      </div>
+    </div>
+    <script>
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.querySelectorAll(".nav-links a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navToggle && navToggle.checked) {
+            navToggle.checked = false;
+          }
+        });
+      });
+      const termsDrawer = document.getElementById("terms-drawer");
+      const openTerms = document.getElementById("open-terms");
+      const closeTerms = document.getElementById("close-terms");
+      const contactDrawer = document.getElementById("contact-drawer");
+      const openContact = document.getElementById("open-contact");
+      const closeContact = document.getElementById("close-contact");
+      const aboutDrawer = document.getElementById("about-drawer");
+      const openAbout = document.getElementById("open-about");
+      const closeAbout = document.getElementById("close-about");
+      const faqDrawer = document.getElementById("faq-drawer");
+      const openFaq = document.getElementById("open-faq");
+      const closeFaq = document.getElementById("close-faq");
+      const openDrawer = (event) => {
+        event.preventDefault();
+        termsDrawer.classList.add("is-open");
+        termsDrawer.setAttribute("aria-hidden", "false");
+      };
+      const closeDrawer = () => {
+        termsDrawer.classList.remove("is-open");
+        termsDrawer.setAttribute("aria-hidden", "true");
+      };
+      openTerms.addEventListener("click", openDrawer);
+      closeTerms.addEventListener("click", closeDrawer);
+      termsDrawer.addEventListener("click", (event) => {
+        if (event.target === termsDrawer) {
+          closeDrawer();
+        }
+      });
+      const openContactDrawer = (event) => {
+        event.preventDefault();
+        contactDrawer.classList.add("is-open");
+        contactDrawer.setAttribute("aria-hidden", "false");
+      };
+      const closeContactDrawer = () => {
+        contactDrawer.classList.remove("is-open");
+        contactDrawer.setAttribute("aria-hidden", "true");
+      };
+      openContact.addEventListener("click", openContactDrawer);
+      closeContact.addEventListener("click", closeContactDrawer);
+      contactDrawer.addEventListener("click", (event) => {
+        if (event.target === contactDrawer) {
+          closeContactDrawer();
+        }
+      });
+      const openAboutDrawer = (event) => {
+        event.preventDefault();
+        aboutDrawer.classList.add("is-open");
+        aboutDrawer.setAttribute("aria-hidden", "false");
+      };
+      const closeAboutDrawer = () => {
+        aboutDrawer.classList.remove("is-open");
+        aboutDrawer.setAttribute("aria-hidden", "true");
+      };
+      openAbout.addEventListener("click", openAboutDrawer);
+      closeAbout.addEventListener("click", closeAboutDrawer);
+      aboutDrawer.addEventListener("click", (event) => {
+        if (event.target === aboutDrawer) {
+          closeAboutDrawer();
+        }
+      });
+      const openFaqDrawer = (event) => {
+        event.preventDefault();
+        faqDrawer.classList.add("is-open");
+        faqDrawer.setAttribute("aria-hidden", "false");
+      };
+      const closeFaqDrawer = () => {
+        faqDrawer.classList.remove("is-open");
+        faqDrawer.setAttribute("aria-hidden", "true");
+      };
+      openFaq.addEventListener("click", openFaqDrawer);
+      closeFaq.addEventListener("click", closeFaqDrawer);
+      faqDrawer.addEventListener("click", (event) => {
+        if (event.target === faqDrawer) {
+          closeFaqDrawer();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeDrawer();
+          closeContactDrawer();
+          closeAboutDrawer();
+          closeFaqDrawer();
+        }
+      });
+      const reservationForm = document.getElementById("reservation-form");
+      const partnerForm = document.getElementById("partner-form");
+      const packageSelect = document.getElementById("paket");
+      const quantityInput = document.getElementById("mnozstvo");
+      let lastQty = null;
+      const packageOptions = Array.from(
+        document.querySelectorAll(".package-option")
+      );
+      const dateInput = document.getElementById("datum");
+      const timeInput = document.getElementById("cas");
+      const totalPrice = document.getElementById("total-price");
+      const feedback = document.getElementById("reservation-feedback");
+      const submitButton = document.getElementById("reservation-submit");
+      const partnerFeedback = document.getElementById("partner-feedback");
+      const phoneInputs = [document.getElementById("telefon"), document.getElementById("telefon-firmy")];
+      phoneInputs.forEach((input) => {
+        if (!input) return;
+        input.addEventListener("input", () => {
+          input.value = input.value.replace(/[^\d]/g, "");
+        });
+      });
+      const PRICE_MAP = {
+        fresh: 10,
+        fruit: 10,
+        pastry: 10,
+        surprise: 8,
+      };
+      const WEIGHT_GRAMS = {
+        fresh: 550,
+        fruit: 600,
+        pastry: 450,
+        surprise: 550,
+      };
+      const savedFoodEl = document.getElementById("saved-food");
+      const savedCo2El = document.getElementById("saved-co2");
+      const formatEuro = (value) => `${value.toFixed(2).replace(".", ",")} €`;
+      const formatKg = (grams) =>
+        `${(grams / 1000).toFixed(2).replace(".", ",")} kg`;
+      const getSelectedItems = () => {
+        const items = [];
+        packageOptions.forEach((option) => {
+          const checkbox = option.querySelector("input[type='checkbox']");
+          const qtyInput = option.querySelector(".package-qty");
+          const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+          if (checkbox.checked) {
+            items.push({ packageId: checkbox.value, quantity: qty });
+          }
+        });
+        return items;
+      };
+      const updateTotal = () => {
+        const items = getSelectedItems();
+        let total = 0;
+        let totalGrams = 0;
+        let totalQty = 0;
+        items.forEach((item) => {
+          total += (PRICE_MAP[item.packageId] || 0) * item.quantity;
+          totalGrams += (WEIGHT_GRAMS[item.packageId] || 0) * item.quantity;
+          totalQty += item.quantity;
+        });
+        totalPrice.textContent = formatEuro(total);
+        if (quantityInput) {
+          const newQty = totalQty || 0;
+          if (lastQty === null) {
+            quantityInput.value = newQty;
+            lastQty = newQty;
+          } else if (lastQty !== newQty) {
+            quantityInput.value = newQty;
+            quantityInput.classList.remove("qty-pop");
+            void quantityInput.offsetWidth;
+            quantityInput.classList.add("qty-pop");
+            lastQty = newQty;
+          }
+        }
+        if (savedFoodEl) {
+          savedFoodEl.textContent = `${formatKg(totalGrams)} jedla`;
+        }
+        if (savedCo2El) {
+          savedCo2El.textContent = `${formatKg(totalGrams)} CO₂`;
+        }
+      };
+      packageOptions.forEach((option) => {
+        const checkbox = option.querySelector("input[type='checkbox']");
+        const qtyInput = option.querySelector(".package-qty");
+        checkbox.addEventListener("change", updateTotal);
+        qtyInput.addEventListener("input", updateTotal);
+        checkbox.addEventListener("change", () => {
+          option.classList.toggle("is-selected", checkbox.checked);
+        });
+      });
+      updateTotal();
+      const pad = (value) => String(value).padStart(2, "0");
+      const formatDate = (date) =>
+        `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+      const today = new Date();
+      const maxDate = new Date();
+      maxDate.setDate(today.getDate() + 5);
+      dateInput.min = formatDate(today);
+      dateInput.max = formatDate(maxDate);
+      const deliverySchedule = {
+        1: { start: "12:00", end: "17:00" },
+        2: { start: "14:30", end: "17:00" },
+        3: { start: "15:00", end: "17:00" },
+        4: { start: "15:00", end: "17:00" },
+        5: { start: "08:00", end: "17:00" },
+        6: { start: "08:00", end: "17:00" },
+      };
+      const applyScheduleForDate = () => {
+        if (!dateInput || !timeInput) return;
+        const value = dateInput.value;
+        if (!value) return;
+        const selected = new Date(`${value}T00:00:00`);
+        const day = selected.getDay();
+        const schedule = deliverySchedule[day];
+        if (!schedule) {
+          timeInput.value = "";
+          timeInput.min = "";
+          timeInput.max = "";
+          feedback.textContent = "V nede?u nedoru?ujeme. Vyberte in? de?.";
+          submitButton.disabled = false;
+          return;
+        }
+        feedback.textContent = "";
+        timeInput.min = schedule.start;
+        timeInput.max = schedule.end;
+        timeInput.step = 900;
+        if (!timeInput.value || timeInput.value < schedule.start || timeInput.value > schedule.end) {
+          timeInput.value = schedule.start;
+        }
+      };
+      dateInput.value = formatDate(today);
+      dateInput.addEventListener("change", applyScheduleForDate);
+      timeInput.addEventListener("change", applyScheduleForDate);
+      applyScheduleForDate();
+reservationForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        feedback.textContent = "Presuvam na platbu...";
+        submitButton.disabled = true;
+        const items = getSelectedItems();
+        if (!items.length) {
+          feedback.textContent = "Vyber aspoň jeden balík.";
+          submitButton.disabled = false;
+          return;
+        }
+        const payload = {
+          items,
+          address: document.getElementById("adresa").value.trim(),
+          pickupTime: document.getElementById("cas").value,
+          pickupDate: document.getElementById("datum").value,
+          name: document.getElementById("meno").value.trim(),
+          email: document.getElementById("email-customer").value.trim(),
+          phone: document.getElementById("telefon").value.trim(),
+          specialRequests: document.getElementById("poznamka").value.trim(),
+        };
+        try {
+          const response = await fetch("/api/checkout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!response.ok) {
+            const error = await response.json().catch(() => ({}));
+            feedback.textContent =
+              error.error || "Nepodarilo sa spustit platbu.";
+            submitButton.disabled = false;
+            return;
+          }
+          const data = await response.json();
+          window.location.href = data.url;
+        } catch (error) {
+          feedback.textContent = "Chyba pripojenia. Skus to znova.";
+          submitButton.disabled = false;
+        }
+      });
+      partnerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!partnerForm.reportValidity()) {
+          return;
+        }
+        const payload = {
+          companyName: document.getElementById("firma").value.trim(),
+          businessType: document.getElementById("prevadzka").value,
+          contactName: document.getElementById("kontakt").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          city: document.getElementById("mesto").value.trim(),
+          phone: document.getElementById("telefon-firmy").value.trim(),
+        };
+        try {
+          const response = await fetch("/api/partners", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            const message =
+              data.error || "Nepodarilo sa odoslať registráciu.";
+            alert(message);
+            return;
+          }
+          alert("Ďakujeme! Registrácia bola prijatá. Ozveme sa vám čo najskôr.");
+          partnerForm.reset();
+        } catch (err) {
+          alert("Chyba pripojenia. Skúste znova.");
+        }
+      });
+      document.querySelectorAll(".reserve-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          const id = link.dataset.package;
+          packageOptions.forEach((option) => {
+            const checkbox = option.querySelector("input[type='checkbox']");
+            const selected = checkbox.value === id;
+            checkbox.checked = selected;
+            option.classList.toggle("is-selected", selected);
+          });
+          updateTotal();
+        });
+      });
+      const initHeroSlider = () => {
+        const slider = document.querySelector(".hero-card-slider");
+        if (!slider) return;
+        const track = slider.querySelector(".slider-track");
+        const slides = Array.from(slider.querySelectorAll(".slide"));
+        const [prevBtn, nextBtn] = slider.querySelectorAll(".slider-btn");
+        const reserveLink = slider.querySelector(".reserve-link");
+        const total = slides.length;
+        let index = 0;
+        let timer = null;
+        const firstClone = slides[0].cloneNode(true);
+        track.appendChild(firstClone);
+        const update = (withTransition = true) => {
+          track.style.transition = withTransition ? "transform 0.6s ease" : "none";
+          track.style.transform = `translateX(-${index * 100}%)`;
+          const slideIndex = index === total ? 0 : index;
+          if (reserveLink) {
+            reserveLink.dataset.package =
+              slides[slideIndex].dataset.package || "";
+          }
+        };
+        const next = () => {
+          index += 1;
+          update();
+        };
+        const prev = () => {
+          if (index === 0) {
+            index = total - 1;
+            update(false);
+          } else {
+            index -= 1;
+            update();
+          }
+        };
+        const start = () => {
+          stop();
+          timer = setInterval(next, 3500);
+        };
+        const stop = () => {
+          if (timer) clearInterval(timer);
+        };
+        nextBtn.addEventListener("click", () => {
+          next();
+          start();
+        });
+        prevBtn.addEventListener("click", () => {
+          prev();
+          start();
+        });
+        track.addEventListener("transitionend", () => {
+          if (index === total) {
+            index = 0;
+            update(false);
+          }
+        });
+        slider.addEventListener("mouseenter", stop);
+        slider.addEventListener("mouseleave", start);
+        update();
+        start();
+      };
+      const animateCountUps = () => {
+        const counters = document.querySelectorAll(".count-up");
+        if (!counters.length) return;
+        const duration = 2400;
+        const animate = (el) => {
+          const target = Number(el.dataset.target || 0);
+          const suffix = el.dataset.suffix || "";
+          const start = performance.now();
+          const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            const value = Math.floor(eased * target);
+            el.textContent = `${value}${suffix}`;
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          };
+          requestAnimationFrame(step);
+        };
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animate(entry.target);
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        counters.forEach((el) => observer.observe(el));
+      };
+      animateCountUps();
+      initHeroSlider();
+    </script>
+        
+    
+  </body>
+</html>

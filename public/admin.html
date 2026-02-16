@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FoodSave Admin</title>
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <div class="logo">
+          <img src="img/logo bg.png" alt="FoodSave logo" />
+          <span class="logo-text">FOODSAVE</span>
+        </div>
+        <div class="nav-links">
+          <a href="/">Domov</a>
+          <a href="#rezervacie">Rezervácie</a>
+          <a href="#partneri">Partneri</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="section admin-panel">
+        <div class="section-header">
+          <h2>Admin panel</h2>
+          <p class="highlight-text">Správa objednávok a partnerov.</p>
+        </div>
+        <div class="card admin-card">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="admin-token">Admin token</label>
+              <input id="admin-token" type="password" placeholder="Zadajte ADMIN_TOKEN" />
+            </div>
+            <div class="form-field">
+              <label for="status-filter">Filter</label>
+              <select id="status-filter">
+                <option value="">Všetky</option>
+                <option value="paid">Zaplatené</option>
+                <option value="pending">Čaká na platbu</option>
+                <option value="expired">Expirované</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-primary" type="button" id="load-reservations">Načítať rezervácie</button>
+            <button class="btn" type="button" id="load-partners">Načítať partnerov</button>
+            <a class="btn btn-ghost" id="download-csv" href="#">Stiahnuť CSV</a>
+          </div>
+          <div id="admin-feedback" class="form-feedback" role="status"></div>
+        </div>
+      </section>
+      <section id="rezervacie" class="section">
+        <div class="section-header">
+          <h2>Rezervácie</h2>
+          <p class="highlight-text">Zobrazuje posledné objednávky.</p>
+        </div>
+        <div class="card admin-table-wrap">
+          <table class="admin-table" id="reservations-table">
+            <thead>
+              <tr>
+                <th>Dátum</th>
+                <th>Zákazník</th>
+                <th>Kontakt</th>
+                <th>Adresa</th>
+                <th>Balíky</th>
+                <th>Termín</th>
+                <th>Spolu</th>
+                <th>Status</th>
+                <th>Poznámka</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <p class="admin-empty" id="reservations-empty">Zatiaľ žiadne objednávky.</p>
+        </div>
+      </section>
+      <section id="partneri" class="section">
+        <div class="section-header">
+          <h2>Partneri</h2>
+          <p class="highlight-text">Nové registrácie partnerov.</p>
+        </div>
+        <div class="card admin-table-wrap">
+          <table class="admin-table" id="partners-table">
+            <thead>
+              <tr>
+                <th>Dátum</th>
+                <th>Firma</th>
+                <th>Typ</th>
+                <th>Kontakt</th>
+                <th>Mesto</th>
+                <th>Telefón</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <p class="admin-empty" id="partners-empty">Zatiaľ žiadne registrácie.</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      const tokenInput = document.getElementById("admin-token");
+      const statusFilter = document.getElementById("status-filter");
+      const feedback = document.getElementById("admin-feedback");
+      const reservationsBody = document.querySelector("#reservations-table tbody");
+      const partnersBody = document.querySelector("#partners-table tbody");
+      const reservationsEmpty = document.getElementById("reservations-empty");
+      const partnersEmpty = document.getElementById("partners-empty");
+      const downloadCsv = document.getElementById("download-csv");
+
+      const setFeedback = (message, isError = false) => {
+        feedback.textContent = message;
+        feedback.style.color = isError ? "#d66a26" : "";
+      };
+
+      const getToken = () => tokenInput.value.trim();
+      const loadToken = () => {
+        const saved = localStorage.getItem("adminToken");
+        if (saved) tokenInput.value = saved;
+      };
+      const saveToken = () => {
+        const token = getToken();
+        if (token) localStorage.setItem("adminToken", token);
+      };
+
+      const requestAdmin = async (url) => {
+        const token = getToken();
+        if (!token) {
+          setFeedback("Zadajte admin token.", true);
+          return null;
+        }
+        saveToken();
+        const response = await fetch(url, {
+          headers: { "x-admin-token": token },
+        });
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          setFeedback(data.error || "Nepodarilo sa načítať dáta.", true);
+          return null;
+        }
+        return response.json();
+      };
+
+      const renderReservations = (reservations = []) => {
+        reservationsBody.innerHTML = "";
+        reservationsEmpty.style.display = reservations.length ? "none" : "block";
+        reservations.forEach((item) => {
+          const items = (item.items || [])
+            .map((row) => `${row.packageName} × ${row.quantity}`)
+            .join(", ");
+          const createdAt = item.createdAt ? new Date(item.createdAt).toLocaleString("sk-SK") : "";
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${createdAt}</td>
+            <td>${item.customerName || ""}</td>
+            <td>${item.email || ""}<br>${item.phone || ""}</td>
+            <td>${item.address || ""}</td>
+            <td>${items || "—"}</td>
+            <td>${item.pickupDate || ""} ${item.pickupTime || ""}</td>
+            <td>${((item.totalCents || 0) / 100).toFixed(2).replace(".", ",")} €</td>
+            <td><span class="status-pill status-${item.status || "pending"}">${item.status || "pending"}</span></td>
+            <td>${item.specialRequests || ""}</td>
+          `;
+          reservationsBody.appendChild(row);
+        });
+      };
+
+      const renderPartners = (partners = []) => {
+        partnersBody.innerHTML = "";
+        partnersEmpty.style.display = partners.length ? "none" : "block";
+        partners.forEach((item) => {
+          const createdAt = item.createdAt ? new Date(item.createdAt).toLocaleString("sk-SK") : "";
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${createdAt}</td>
+            <td>${item.companyName || ""}</td>
+            <td>${item.businessType || ""}</td>
+            <td>${item.contactName || ""}<br>${item.email || ""}</td>
+            <td>${item.city || ""}</td>
+            <td>${item.phone || ""}</td>
+          `;
+          partnersBody.appendChild(row);
+        });
+      };
+
+      const loadReservations = async () => {
+        setFeedback("Načítavam rezervácie...");
+        const status = statusFilter.value;
+        const url = new URL("/api/admin/reservations", window.location.origin);
+        if (status) url.searchParams.set("status", status);
+        url.searchParams.set("limit", "200");
+        const data = await requestAdmin(url.toString());
+        if (!data) return;
+        renderReservations(data.reservations || []);
+        setFeedback("");
+      };
+
+      const loadPartners = async () => {
+        setFeedback("Načítavam partnerov...");
+        const url = new URL("/api/admin/partners", window.location.origin);
+        url.searchParams.set("limit", "200");
+        const data = await requestAdmin(url.toString());
+        if (!data) return;
+        renderPartners(data.partners || []);
+        setFeedback("");
+      };
+
+      document.getElementById("load-reservations").addEventListener("click", loadReservations);
+      document.getElementById("load-partners").addEventListener("click", loadPartners);
+      statusFilter.addEventListener("change", () => {
+        if (reservationsBody.children.length) {
+          loadReservations();
+        }
+      });
+      downloadCsv.addEventListener("click", (event) => {
+        const token = getToken();
+        if (!token) {
+          event.preventDefault();
+          setFeedback("Zadajte admin token.", true);
+          return;
+        }
+        const status = statusFilter.value;
+        const url = new URL("/api/admin/reservations.csv", window.location.origin);
+        url.searchParams.set("token", token);
+        if (status) url.searchParams.set("status", status);
+        downloadCsv.href = url.toString();
+      });
+
+      loadToken();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FoodSave - &times;akujeme</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="section thank-you-page">
+      <div class="thank-you-bg" aria-hidden="true">
+        <span class="emo e1">&#x2764;</span>
+        <span class="emo e2">&#x1F60A;</span>
+        <span class="emo e3">=^.^=</span>
+        <span class="emo e4">&#x2764;</span>
+        <span class="emo e5">&#x1F60A;</span>
+        <span class="emo e6">=^.^=</span>
+        <span class="emo e7">&#x2764;</span>
+        <span class="emo e8">&#x1F60A;</span>
+        <span class="emo e9">=^.^=</span>
+        <span class="emo e10">&#x2764;</span>
+        <span class="emo e11">&#x1F60A;</span>
+        <span class="emo e12">=^.^=</span>
+        <span class="emo e13">&#x2764;</span>
+        <span class="emo e14">&#x1F60A;</span>
+        <span class="emo e15">=^.^=</span>
+        <span class="emo e16">&#x2764;</span>
+        <span class="emo e17">&#x1F60A;</span>
+        <span class="emo e18">=^.^=</span>
+      </div>
+      <div class="cta-card" style="max-width: 720px; margin: 0 auto;">
+        <h1 class="thanks-title">Platba &uacute;spe&scaron;n&aacute;</h1>
+        <p class="thanks-message">&Dcaron;akujeme, &zcaron;e s nami &scaron;etr&iacute;&scaron; &zcaron;ivotn&eacute; prostredie!</p>
+        <div id="order-summary" class="thanks-details order-summary">
+          <div class="order-row"><span>Bal&iacute;ky</span><strong id="order-items">-</strong></div>
+          <div class="order-row"><span>D&aacute;tum</span><strong id="order-date">-</strong></div>
+          <div class="order-row"><span>&Ccaron;as</span><strong id="order-time">-</strong></div>
+          <div class="order-row"><span>U&scaron;etren&eacute; CO&#8322;</span><strong id="order-co2">-</strong></div>
+          <div class="order-row"><span>Spolu</span><strong id="order-total">-</strong></div>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/">Sp&auml;&tcaron; na web</a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id");
+      const orderItems = document.getElementById("order-items");
+      const orderDate = document.getElementById("order-date");
+      const orderTime = document.getElementById("order-time");
+      const orderTotal = document.getElementById("order-total");
+      const orderCo2 = document.getElementById("order-co2");
+
+      const formatEuro = (cents) =>
+        `${(cents / 100).toFixed(2).replace(".", ",")} €`;
+      const formatKg = (grams) =>
+        `${(grams / 1000).toFixed(2).replace(".", ",")} kg`;
+
+      const WEIGHT_GRAMS = {
+        fresh: 550,
+        fruit: 600,
+        pastry: 450,
+        surprise: 550,
+      };
+
+      if (!sessionId) {
+        orderItems.textContent = "Neprišlo žiadne ID platby.";
+      } else {
+        fetch(`/api/checkout/session/${sessionId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.error) {
+              orderItems.textContent = data.error;
+              return;
+            }
+
+            const items = data.items || [];
+            const itemsText = items
+              .map((item) => `${item.packageName} (${item.quantity}×)`)
+              .join(", ");
+
+            const totalGrams = items.reduce((sum, item) => {
+              const grams = WEIGHT_GRAMS[item.packageId] || 0;
+              return sum + grams * (item.quantity || 0);
+            }, 0);
+
+            orderItems.textContent = itemsText || "-";
+            orderDate.textContent = data.pickupDate || "-";
+            orderTime.textContent = data.pickupTime || "-";
+            orderCo2.textContent = totalGrams ? formatKg(totalGrams) : "-";
+            orderTotal.textContent = formatEuro(data.totalCents || 0);
+          })
+          .catch(() => {
+            orderItems.textContent = "Nepodarilo sa nacitat detail rezervacie.";
+          });
+      }
+    </script>
+  </body>
+</html>
