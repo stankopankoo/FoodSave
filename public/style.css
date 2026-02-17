@@ -745,8 +745,7 @@ html {
 
 @media (max-width: 900px) {
   .packages-callout {
-    position: static;
-    margin-bottom: 18px;
+    display: none;
   }
 
   .packages-callout p {
@@ -2085,6 +2084,12 @@ html {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  body::before {
+    font-size: clamp(3rem, 16vw, 9rem);
   }
 }
 
