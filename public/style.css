@@ -598,7 +598,7 @@ html {
 
 .mobile-card-body {
   display: grid;
-  gap: 10px;
+  gap: 6px;
 }
 
 .mobile-card-eyebrow {
