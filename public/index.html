@@ -162,15 +162,15 @@
               <a class="btn btn-small reserve-link" href="#rezervacia" data-package="fresh">Zachr&aacute;ni&tcaron; box</a>
             </div>
           </div>
-          <div class="hero-card hero-card-mobile">
-            <div class="mobile-card-media"></div>
+          <div class="hero-card hero-card-mobile" id="hero-card-mobile">
+            <div class="mobile-card-media" id="mobile-card-media"></div>
             <div class="mobile-card-body">
-              <p class="mobile-card-eyebrow">Najobľúbenejší balík</p>
-              <h3>Čerstvé pečivo</h3>
-              <p>Mix rožkov, bagiet a koláčikov z dneška.</p>
+              <p class="mobile-card-eyebrow" id="mobile-card-eyebrow">Najobľúbenejší balík</p>
+              <h3 id="mobile-card-title">Čerstvé pečivo</h3>
+              <p id="mobile-card-desc">Mix rožkov, bagiet a koláčikov z dneška.</p>
               <div class="mobile-card-row">
-                <span class="price-pill">10 € / mesiac (4 balíky)</span>
-                <a class="btn btn-small" href="#rezervacia">Zachrániť box</a>
+                <span class="price-pill" id="mobile-card-price">10 € / mesiac (4 balíky)</span>
+                <a class="btn btn-small reserve-link" id="mobile-card-link" href="#rezervacia" data-package="fresh">Zachrániť box</a>
               </div>
             </div>
           </div>
@@ -1069,6 +1069,77 @@ reservationForm.addEventListener("submit", async (event) => {
       };
       animateCountUps();
       initHeroSlider();
+
+      const initMobileHeroCard = () => {
+        const mobileCard = document.getElementById("hero-card-mobile");
+        if (!mobileCard) return;
+
+        const media = document.getElementById("mobile-card-media");
+        const title = document.getElementById("mobile-card-title");
+        const desc = document.getElementById("mobile-card-desc");
+        const price = document.getElementById("mobile-card-price");
+        const link = document.getElementById("mobile-card-link");
+
+        const packages = [
+          {
+            id: "fresh",
+            title: "Čerstvé pečivo",
+            desc: "Mix rožkov, bagiet a koláčikov z dneška.",
+            price: "10 € / mesiac (4 balíky)",
+            image:
+              "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+          },
+          {
+            id: "fruit",
+            title: "Ovocný box",
+            desc: "Banány, jablká, hrušky, hrozno.",
+            price: "10 € / mesiac (4 balíky)",
+            image:
+              "https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=900&q=80",
+          },
+          {
+            id: "pastry",
+            title: "Cukrárenský výber",
+            desc: "Koláče a zákusky z dneška.",
+            price: "10 € / mesiac (4 balíky)",
+            image:
+              "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=900&q=80",
+          },
+          {
+            id: "surprise",
+            title: "Surprise box",
+            desc: "Obsah podľa dostupnosti.",
+            price: "8 € / mesiac (4 balíky)",
+            image:
+              "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='none'/><text x='100' y='110' text-anchor='middle' dominant-baseline='middle' font-size='160' font-family='Manrope, Arial, sans-serif' font-weight='800' fill='%23121816'>?</text></svg>",
+          },
+        ];
+
+        let index = 0;
+        const render = (pkg) => {
+          if (media) {
+            media.style.backgroundImage = `linear-gradient(135deg, rgba(76, 175, 80, 0.18), rgba(255, 138, 61, 0.25)), url('${pkg.image}')`;
+          }
+          if (title) title.textContent = pkg.title;
+          if (desc) desc.textContent = pkg.desc;
+          if (price) price.textContent = pkg.price;
+          if (link) link.dataset.package = pkg.id;
+        };
+
+        const next = () => {
+          index = (index + 1) % packages.length;
+          mobileCard.classList.add("is-fading");
+          setTimeout(() => {
+            render(packages[index]);
+            mobileCard.classList.remove("is-fading");
+          }, 220);
+        };
+
+        render(packages[index]);
+        setInterval(next, 4200);
+      };
+
+      initMobileHeroCard();
     </script>
         
     

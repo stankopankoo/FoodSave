@@ -575,6 +575,12 @@ html {
 .hero-card-mobile {
   display: none;
   gap: 12px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hero-card-mobile.is-fading {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .mobile-card-media {
@@ -1780,12 +1786,22 @@ html {
     width: 100%;
     flex-direction: column;
     gap: 14px;
-    padding: 12px 0 6px;
-    display: none;
+    padding: 0;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    overflow: hidden;
+    display: flex;
+    transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.25s ease, padding 0.25s ease;
+    pointer-events: none;
   }
 
   .nav-toggle:checked + .burger + .nav-links {
-    display: flex;
+    max-height: 420px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 12px 0 6px;
+    pointer-events: auto;
   }
 
   .nav-toggle:checked + .burger span:nth-child(1) {
