@@ -1701,6 +1701,11 @@ html {
 }
 
 @media (max-width: 900px) {
+  .site-header {
+    background: #ffffff;
+    backdrop-filter: none;
+  }
+
   .nav {
     flex-direction: column;
     align-items: flex-start;
@@ -1874,6 +1879,49 @@ html {
     height: clamp(100px, 27vw, 130px);
     right: -20px;
     bottom: -20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-card-slider {
+    padding: 8px;
+  }
+
+  .slide {
+    gap: 12px;
+  }
+
+  .slide-media {
+    height: 96px;
+    border-radius: 12px;
+  }
+
+  .slide-body {
+    gap: 6px;
+  }
+
+  .slide h3 {
+    font-size: 1rem;
+  }
+
+  .slide p {
+    margin: 0 0 6px;
+    font-size: 0.9rem;
+  }
+
+  .slide-meta {
+    gap: 4px;
+    font-size: 0.85rem;
+  }
+
+  .price-pill {
+    font-size: 0.78rem;
+    padding: 4px 8px;
+  }
+
+  .hero-card-slider .btn-small {
+    padding: 6px 12px;
+    font-size: 0.85rem;
   }
 }
 
