@@ -1790,12 +1790,29 @@ html {
 
   .hero-card-slider {
     padding: 10px;
+    overflow: hidden;
   }
 
   .slider-window,
   .slider-track,
   .slide {
     min-width: 0;
+  }
+
+  .slide {
+    width: 100%;
+  }
+
+  .slide-body,
+  .slide-header {
+    min-width: 0;
+  }
+
+  .slide h3,
+  .slide p,
+  .slide-meta,
+  .price-pill {
+    overflow-wrap: anywhere;
   }
 
   .slider-track {
@@ -1835,6 +1852,7 @@ html {
   .price-pill {
     font-size: 0.85rem;
     padding: 4px 10px;
+    white-space: normal;
   }
 
   .slider-controls {
@@ -1889,11 +1907,13 @@ html {
 
   .slide {
     gap: 12px;
+    width: 100%;
   }
 
   .slide-media {
     height: 96px;
     border-radius: 12px;
+    max-width: 100%;
   }
 
   .slide-body {
@@ -1917,6 +1937,7 @@ html {
   .price-pill {
     font-size: 0.78rem;
     padding: 4px 8px;
+    white-space: normal;
   }
 
   .hero-card-slider .btn-small {
