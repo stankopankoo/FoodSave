@@ -7,6 +7,28 @@
       name="description"
       content="FoodSave pomáha zachrániť kvalitné jedlo za výhodnú cenu. Vyberte balík, nastavte doručenie a zaplaťte bezpečne online."
     />
+    <link rel="canonical" href="https://foodsave-production.up.railway.app/" />
+    <meta property="og:title" content="FoodSave – zachráň jedlo" />
+    <meta
+      property="og:description"
+      content="FoodSave pomáha zachrániť kvalitné jedlo za výhodnú cenu. Vyberte balík, nastavte doručenie a zaplaťte bezpečne online."
+    />
+    <meta property="og:url" content="https://foodsave-production.up.railway.app/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://foodsave-production.up.railway.app/img/logo%20bg.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FoodSave – zachráň jedlo" />
+    <meta
+      name="twitter:description"
+      content="FoodSave pomáha zachrániť kvalitné jedlo za výhodnú cenu. Vyberte balík, nastavte doručenie a zaplaťte bezpečne online."
+    />
+    <meta
+      name="twitter:image"
+      content="https://foodsave-production.up.railway.app/img/logo%20bg.png"
+    />
     <title>Zachráň jedlo. Zachráň planétu.</title>
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
@@ -76,7 +98,7 @@
                   <div class="slide" data-package="fresh">
                     <div class="slide-media slide-media-bread">
                       <img
-                        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80"
+                        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=70"
                         alt="Čerstvé pečivo"
                       />
                     </div>
@@ -95,7 +117,7 @@
                   <div class="slide" data-package="fruit">
                     <div class="slide-media slide-media-fruit">
                       <img
-                        src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=900&q=80"
+                        src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=800&q=70"
                         alt="Ovocný box"
                       />
                     </div>
@@ -114,7 +136,7 @@
                   <div class="slide" data-package="pastry">
                     <div class="slide-media slide-media-pastry">
                       <img
-                        src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=900&q=80"
+                        src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=800&q=70"
                         alt="Cukrárenský výber"
                       />
                     </div>
@@ -759,7 +781,6 @@
       });
       const reservationForm = document.getElementById("reservation-form");
       const partnerForm = document.getElementById("partner-form");
-      const packageSelect = document.getElementById("paket");
       const quantityInput = document.getElementById("mnozstvo");
       let lastQty = null;
       const packageOptions = Array.from(
@@ -770,7 +791,6 @@
       const totalPrice = document.getElementById("total-price");
       const feedback = document.getElementById("reservation-feedback");
       const submitButton = document.getElementById("reservation-submit");
-      const partnerFeedback = document.getElementById("partner-feedback");
       const phoneInputs = [document.getElementById("telefon"), document.getElementById("telefon-firmy")];
       phoneInputs.forEach((input) => {
         if (!input) return;
@@ -1010,11 +1030,23 @@ reservationForm.addEventListener("submit", async (event) => {
           }
         };
         const start = () => {
-          stop();
+          if (timer || !isVisible) return;
           timer = setInterval(next, 3500);
         };
         const stop = () => {
-          if (timer) clearInterval(timer);
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        };
+        let isVisible = true;
+        const handleVisibility = (visible) => {
+          isVisible = visible;
+          if (visible) {
+            start();
+          } else {
+            stop();
+          }
         };
         nextBtn.addEventListener("click", () => {
           next();
@@ -1031,9 +1063,28 @@ reservationForm.addEventListener("submit", async (event) => {
           }
         });
         slider.addEventListener("mouseenter", stop);
-        slider.addEventListener("mouseleave", start);
+        slider.addEventListener("mouseleave", () => {
+          if (isVisible) start();
+        });
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => handleVisibility(entry.isIntersecting));
+            },
+            { threshold: 0.2 }
+          );
+          observer.observe(slider);
+        } else {
+          start();
+        }
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            stop();
+          } else if (isVisible) {
+            start();
+          }
+        });
         update();
-        start();
       };
       const animateCountUps = () => {
         const counters = document.querySelectorAll(".count-up");
@@ -1087,7 +1138,7 @@ reservationForm.addEventListener("submit", async (event) => {
             desc: "Mix rožkov, bagiet a koláčikov z dneška.",
             price: "10 € / mesiac (4 balíky)",
             image:
-              "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+              "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=70",
           },
           {
             id: "fruit",
@@ -1095,7 +1146,7 @@ reservationForm.addEventListener("submit", async (event) => {
             desc: "Banány, jablká, hrušky, hrozno.",
             price: "10 € / mesiac (4 balíky)",
             image:
-              "https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=900&q=80",
+              "https://images.unsplash.com/photo-1573246123716-6b1782bfc499?auto=format&fit=crop&w=800&q=70",
           },
           {
             id: "pastry",
@@ -1103,7 +1154,7 @@ reservationForm.addEventListener("submit", async (event) => {
             desc: "Koláče a zákusky z dneška.",
             price: "10 € / mesiac (4 balíky)",
             image:
-              "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=900&q=80",
+              "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=800&q=70",
           },
           {
             id: "surprise",
@@ -1116,6 +1167,8 @@ reservationForm.addEventListener("submit", async (event) => {
         ];
 
         let index = 0;
+        let timer = null;
+        let isVisible = true;
         const render = (pkg) => {
           if (media) {
             media.style.backgroundImage = `linear-gradient(135deg, rgba(76, 175, 80, 0.18), rgba(255, 138, 61, 0.25)), url('${pkg.image}')`;
@@ -1136,7 +1189,42 @@ reservationForm.addEventListener("submit", async (event) => {
         };
 
         render(packages[index]);
-        setInterval(next, 4200);
+        const start = () => {
+          if (timer || !isVisible) return;
+          timer = setInterval(next, 4200);
+        };
+        const stop = () => {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        };
+        const handleVisibility = (visible) => {
+          isVisible = visible;
+          if (visible) {
+            start();
+          } else {
+            stop();
+          }
+        };
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => handleVisibility(entry.isIntersecting));
+            },
+            { threshold: 0.2 }
+          );
+          observer.observe(mobileCard);
+        } else {
+          start();
+        }
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            stop();
+          } else if (isVisible) {
+            start();
+          }
+        });
       };
 
       initMobileHeroCard();
