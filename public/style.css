@@ -2090,6 +2090,10 @@ html {
 @media (max-width: 900px) {
   body::before {
     font-size: clamp(3rem, 16vw, 9rem);
+    mix-blend-mode: normal;
+    opacity: 0.08;
+    transform: translateZ(0);
+    will-change: transform;
   }
 }
 
