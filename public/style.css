@@ -2091,7 +2091,9 @@ html {
   body::before {
     font-size: clamp(3rem, 16vw, 9rem);
     mix-blend-mode: normal;
-    opacity: 0.08;
+    opacity: 0.26;
+    color: rgba(31, 42, 36, 0.24);
+    text-shadow: 0 12px 28px rgba(31, 42, 36, 0.2);
     transform: translateZ(0);
     will-change: transform;
   }
