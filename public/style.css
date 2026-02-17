@@ -572,6 +572,45 @@ html {
   font-weight: 600;
 }
 
+.hero-card-mobile {
+  display: none;
+  gap: 12px;
+}
+
+.mobile-card-media {
+  height: 160px;
+  border-radius: 18px;
+  background-image: linear-gradient(
+      135deg,
+      rgba(76, 175, 80, 0.18),
+      rgba(255, 138, 61, 0.25)
+    ),
+    url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.mobile-card-body {
+  display: grid;
+  gap: 10px;
+}
+
+.mobile-card-eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--green-dark);
+  text-transform: uppercase;
+}
+
+.mobile-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -1785,6 +1824,14 @@ html {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+
+  .hero-card-slider {
+    display: none;
+  }
+
+  .hero-card-mobile {
+    display: grid;
   }
 
 
