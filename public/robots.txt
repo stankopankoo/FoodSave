@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://foodsave-production.up.railway.app/sitemap.xml
+Sitemap: https://www.foodsave.store/sitemap.xml
